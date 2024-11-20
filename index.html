@@ -29,7 +29,6 @@
             padding: 60px 20px;
             background: rgba(0, 0, 0, 0.5);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            position: relative;
         }
 
         header h1 {
@@ -45,17 +44,12 @@
             font-style: italic;
         }
 
-        header nav {
-            margin-top: 20px;
-        }
-
         header nav ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
             display: flex;
             justify-content: center;
             gap: 20px;
+            padding: 0;
         }
 
         header nav ul li {
@@ -67,7 +61,6 @@
             color: #00bfff;
             font-size: 1rem;
             padding: 10px 15px;
-            border: 2px solid transparent;
             transition: all 0.3s ease;
         }
 
@@ -75,12 +68,11 @@
             border-bottom: 2px solid #00bfff;
         }
 
-        /* Contenido principal */
+        /* Secciones */
         .content {
             position: relative;
             z-index: 1;
             padding: 20px;
-            backdrop-filter: blur(5px);
         }
 
         section {
@@ -110,30 +102,12 @@
             padding: 10px;
             background: #444;
             border-radius: 5px;
-            transition: transform 0.3s ease;
         }
 
-        section ul li:hover {
-            transform: scale(1.05);
-            background: #555;
-        }
-
-        /* Animación de entrada */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Footer */
         footer {
             text-align: center;
             padding: 20px;
             background: rgba(0, 0, 0, 0.7);
-            border-top: 2px solid rgba(255, 255, 255, 0.2);
             color: #ccc;
         }
     </style>
@@ -150,13 +124,13 @@
             <ul>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#cursos">Cursos</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#companeros">Compañeros</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Contenido principal -->
+    <!-- Contenido -->
     <div class="content">
         <section id="sobre-mi">
             <h2>Sobre mí</h2>
@@ -165,7 +139,6 @@
 
         <section id="cursos">
             <h2>Cursos</h2>
-            <h3>Completados:</h3>
             <ul>
                 <li>Matemática 1</li>
                 <li>Estructuras Discretas 1</li>
@@ -174,22 +147,14 @@
                 <li>Metodología del Estudio</li>
                 <li>Introducción a la Vida Universitaria</li>
             </ul>
-            <h3>Actuales:</h3>
-            <ul>
-                <li>Matemática 2</li>
-                <li>Estructuras Discretas 2</li>
-                <li>Ciencias de la Computación 1</li>
-                <li>Introducción a las Ciencias de la Computación</li>
-            </ul>
         </section>
 
-        <section id="proyectos">
-            <h2>Proyectos</h2>
-            <p>Estos son algunos de mis proyectos destacados:</p>
+        <section id="companeros">
+            <h2>Compañeros</h2>
             <ul>
-                <li>Juego 2D desarrollado en C++ con SFML.</li>
-                <li>Sistema de gestión de tareas en Python.</li>
-                <li>Página web para un negocio local.</li>
+                <li><a href="#">Compañero 1</a></li>
+                <li><a href="#">Compañero 2</a></li>
+                <li><a href="#">Compañero 3</a></li>
             </ul>
         </section>
 
@@ -204,76 +169,79 @@
         <p>&copy; 2024 Ivan Gonzales Begazo</p>
     </footer>
 
-    <!-- JavaScript para el fondo dinámico -->
+    <!-- JavaScript -->
     <script>
-        const canvas = document.getElementById('background');
-        const ctx = canvas.getContext('2d');
+        const canvas = document.getElementById("background");
+        const ctx = canvas.getContext("2d");
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        let width, height;
+        let particles = [];
 
-        let particlesArray = [];
-        const numberOfParticles = 200;
-
-        class Particle {
-            constructor(x, y, size, speedX, speedY) {
-                this.x = x;
-                this.y = y;
-                this.size = size;
-                this.speedX = speedX;
-                this.speedY = speedY;
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x < 0 || this.x > canvas.width) {
-                    this.speedX *= -1;
-                }
-                if (this.y < 0 || this.y > canvas.height) {
-                    this.speedY *= -1;
-                }
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = '#00bfff';
-                ctx.fill();
-            }
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
         }
 
-        function init() {
-            particlesArray = [];
-            for (let i = 0; i < numberOfParticles; i++) {
-                const x = Math.random() * canvas.width;
-                const y = Math.random() * canvas.height;
-                const size = Math.random() * 3 + 1;
-                const speedX = Math.random() * 2 - 1;
-                const speedY = Math.random() * 2 - 1;
-                particlesArray.push(new Particle(x, y, size, speedX, speedY));
-            }
+        function createParticles() {
+            particles = Array.from({ length: 150 }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                dx: Math.random() * 2 - 1,
+                dy: Math.random() * 2 - 1,
+                size: Math.random() * 3 + 1,
+            }));
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, width, height);
+
+            particles.forEach((p) => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = "#00bfff";
+                ctx.fill();
+
+                // Líneas entre partículas
+                particles.forEach((other) => {
+                    const distance = Math.sqrt(
+                        (p.x - other.x) ** 2 + (p.y - other.y) ** 2
+                    );
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(other.x, other.y);
+                        ctx.strokeStyle = "rgba(0, 191, 255, 0.2)";
+                        ctx.stroke();
+                    }
+                });
+            });
+
+            updateParticles();
+        }
+
+        function updateParticles() {
+            particles.forEach((p) => {
+                p.x += p.dx;
+                p.y += p.dy;
+
+                if (p.x < 0 || p.x > width) p.dx *= -1;
+                if (p.y < 0 || p.y > height) p.dy *= -1;
+            });
         }
 
         function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particlesArray.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
+            drawParticles();
             requestAnimationFrame(animate);
         }
 
-        init();
-        animate();
+        window.addEventListener("resize", resizeCanvas);
 
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            init();
-        });
+        resizeCanvas();
+        createParticles();
+        animate();
     </script>
 </body>
 </html>
+
+
 
