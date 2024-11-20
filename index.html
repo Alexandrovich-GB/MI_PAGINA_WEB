@@ -3,50 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Página personal de Ivan Alexandrovich Gonzales Begazo ">
-    <title>[Tu Nombre Completo]</title>
+    <meta name="description" content="Página personal de Ivan Alexandrovich Gonzales Begazo">
+    <title>Ivan Gonzales Begazo</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #333, #555);
+            color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: #222;
+            border-bottom: 5px solid #444;
+        }
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #f4f4f4;
+            animation: fadeIn 2s ease;
+        }
+        header p {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #ccc;
+            margin: 10px 0 0;
+        }
+
+        /* Navigation Menu */
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            color: #ddd;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            color: #00bfff;
+            text-shadow: 0 0 10px #00bfff;
+        }
+
+        /* Sections */
+        section {
+            margin: 50px auto;
+            padding: 30px;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            animation: slideIn 1s ease-in-out;
+        }
+        section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            color: #00bfff;
+        }
+        section ul {
+            list-style: none;
+            padding: 0;
+        }
+        section ul li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #444;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        section ul li:hover {
+            transform: scale(1.05);
+            background: #555;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: #00bfff;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #008fcc;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: #ccc;
+            border-top: 5px solid #444;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Bienvenido a la página de Ivan Alexandrovich Gonzales Begazo</h1>
-        <p>Estudiante de la carrera de Ciencias de la Computación en UCSP.</p>
+        <h1>Ivan Gonzales Begazo</h1>
+        <p>Explora mi mundo</p>
     </header>
-    <main>
-        <section>
-            <h2>Datos Generales</h2>
-            <ul>
-                <li><strong>Nombre completo:</strong> Ivan Alexandrovich Gonzales Begazo</li>
-                <li><strong>Carrera:</strong> Ciencias de la Computación</li>
-                <li><strong>Correo:</strong> ivan.gonzales@ucsp.edu.pe</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Cursos Realizados</h2>
-            <ul>
-                <li>Programacion de videojuegos</li>
-                <li>Matematica 1</li>
-                <li>Estructuras discretas 1</li>
-                <li>Introducción a la vida universitaria</li>
-                <li>Comunicacion</li>
-                <li>Metodologia del Estudio</li>
-                <li>Ciencias de la programacion 1</li>
-                <li>Estructuras discretas 2</li>
-                <li>Matematica 2</li>
-                <li>Introducción a la ciencia de la computacion </li>
-            </ul>
-        </section>
-        <section>
-            <h2>Compañeros de Clase</h2>
-            <p>Estudio con excelentes compañeros como:</p>
-            <ul>
-                <li><a href="https://pagina-de-amigo1.com" target="_blank">Amigo 1</a></li>
-                <li><a href="https://pagina-de-amigo2.com" target="_blank">Amigo 2</a></li>
-                <li><a href="https://pagina-de-amigo3.com" target="_blank">Amigo 3</a></li>
-            </ul>
-        </section>
-    </main>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Sections -->
+    <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+        <p>¡Hola! Soy Ivan Alexandrovich Gonzales Begazo, un apasionado estudiante de Ciencias de la Computación en la Universidad Católica San Pablo. Me encanta aprender, explorar nuevas tecnologías y asumir retos interesantes.</p>
+        <p>Actualmente estoy en mi sexto semestre y siempre busco mejorar tanto personal como profesionalmente.</p>
+    </section>
+
+    <section id="cursos">
+        <h2>Cursos</h2>
+        <h3>Cursos completados:</h3>
+        <ul>
+            <li>Matemática 1</li>
+            <li>Estructuras Discretas 1</li>
+            <li>Programación de Videojuegos</li>
+            <li>Comunicación</li>
+            <li>Metodología del Estudio</li>
+            <li>Introducción a la Vida Universitaria</li>
+        </ul>
+        <h3>Cursos actuales:</h3>
+        <ul>
+            <li>Matemática 2</li>
+            <li>Estructuras Discretas 2</li>
+            <li>Ciencias de la Computación 1</li>
+            <li>Introducción a las Ciencias de la Computación</li>
+        </ul>
+    </section>
+
+    <section id="proyectos">
+        <h2>Proyectos</h2>
+        <p>Algunos de mis proyectos destacados incluyen:</p>
+        <ul>
+            <li>Un juego 2D desarrollado en C++ usando SFML.</li>
+            <li>Un sistema de gestión de tareas hecho con Python.</li>
+            <li>Una página web para una pequeña empresa local.</li>
+        </ul>
+        <a href="#" class="btn">Ver más proyectos</a>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>¿Tienes alguna pregunta o quieres colaborar en un proyecto? ¡No dudes en escribirme!</p>
+        <p>Email: <a href="mailto:Ivan.gonzales@ucsp.edu.pe" style="color: #00bfff;">Ivan.gonzales@ucsp.edu.pe</a></p>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2024 Ivan Alexandrovich Gonzales Begazo. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Ivan Alexandrovich Gonzales Begazo</p>
     </footer>
 </body>
 </html>
